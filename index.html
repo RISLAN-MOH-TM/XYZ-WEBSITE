@@ -9,8 +9,9 @@
 <body>
   <header>
     <h1>XYZ Grand Hotel</h1>
-    <nav>
-      <ul>
+    <nav aria-label="Main Navigation">
+      <button class="mobile-menu-toggle">☰ Menu</button>
+      <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#booking">Book a Room</a></li>
         <li><a href="#admin">Admin Login</a></li>
@@ -25,15 +26,14 @@
       <h2>Your Luxury Awaits</h2>
       <img src="images/hotel.jpg" alt="Hotel View" class="hero-image">
       <p>Immerse yourself in the vibrant charm of Colombo while indulging in a haven of comfort and sophistication. 🌆✨ Wake up to breathtaking views of the Indian Ocean or the city skyline, and unwind in exquisitely designed interiors that blend modern luxury with timeless elegance. Whether you're traveling for business or leisure, every detail is thoughtfully curated to make your stay unforgettable.
-Delight your palate with gourmet dining experiences, relax with rejuvenating spa treatments, or host seamless events with top-tier facilities and attentive staff. From the moment you arrive, experience warm Sri Lankan hospitality that feels like coming home—only more indulgent.
-</p>
+Delight your palate with gourmet dining experiences, relax with rejuvenating spa treatments, or host seamless events with top-tier facilities and attentive staff. From the moment you arrive, experience warm Sri Lankan hospitality that feels like coming home—only more indulgent.</p>
     </section>
 
     <section id="booking" class="content-section">
       <h2>Book a Room</h2>
       <form>
         <label for="roomType">Room Type</label>
-        <select id="roomType">
+        <select id="roomType" required>
           <option value="single">Single</option>
           <option value="double">Double</option>
           <option value="suite">Suite</option>
@@ -96,36 +96,6 @@ Delight your palate with gourmet dining experiences, relax with rejuvenating spa
     <p>&copy; 2025 XYZ Grand Hotel. All rights reserved.</p>
   </footer>
 
-  <script>
-    // Smooth scroll
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
-    // Scroll animation
-    const sections = document.querySelectorAll('.content-section');
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    sections.forEach(section => {
-      section.classList.add('invisible');
-      observer.observe(section);
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
