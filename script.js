@@ -1,45 +1,42 @@
-// Mobile nav toggle
-const toggleMenu = document.querySelector('.mobile-menu-toggle');
-toggleMenu.addEventListener('click', () => {
-  document.querySelector('nav ul').classList.toggle('show');
+// Toggle mobile nav
+const toggleButton = document.querySelector('.mobile-menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+toggleButton.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
 });
 
-// Smooth scroll
+// Modal logic
+const loginModal = document.getElementById("loginModal");
+const closeButton = document.querySelector(".close-button");
+
+closeButton.addEventListener("click", () => {
+  loginModal.classList.add("hidden");
+});
+
+window.addEventListener("click", e => {
+  if (e.target === loginModal) {
+    loginModal.classList.add("hidden");
+  }
+});
+
+// Smooth scroll for nav links
 document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
-});
-
-// Scroll animation
-const sections = document.querySelectorAll('.content-section');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
-
-sections.forEach(section => {
-  section.classList.add('invisible');
-  observer.observe(section);
 });
 
 // Form validation
-document.querySelectorAll('form').forEach(form => {
-  form.addEventListener('submit', e => {
+document.querySelectorAll("form").forEach(form => {
+  form.addEventListener("submit", e => {
     if (!form.checkValidity()) {
       e.preventDefault();
-      alert("Please fill all required fields.");
+      alert("Please fill out all required fields.");
     }
   });
 });
