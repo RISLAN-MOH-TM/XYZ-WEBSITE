@@ -2,79 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>XYZ Grand Hotel</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>XYZ Grand Hotel</h1>
-    <nav aria-label="Main Navigation">
-      <button class="mobile-menu-toggle">☰ Menu</button>
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">XYZ Grand Hotel</div>
+      <button class="mobile-menu-toggle">&#9776;</button>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#booking">Book a Room</a></li>
-        <li><a href="#admin">Admin Login</a></li>
-        <li><a href="#staff">Staff Login</a></li>
-        <li><a href="#feedback">Customer Feedback</a></li>
+        <li><a href="#booking">Book</a></li>
+        <li><a href="#feedback">Feedback</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section id="home" class="content-section">
-      <h2>Your Luxury Awaits</h2>
-      <img src="images/hotel.jpg" alt="Hotel View" class="hero-image">
-      <p>Immerse yourself in the vibrant charm of Colombo while indulging in a haven of comfort and sophistication. 🌆✨ Wake up to breathtaking views of the Indian Ocean or the city skyline, and unwind in exquisitely designed interiors that blend modern luxury with timeless elegance. Whether you're traveling for business or leisure, every detail is thoughtfully curated to make your stay unforgettable.
-Delight your palate with gourmet dining experiences, relax with rejuvenating spa treatments, or host seamless events with top-tier facilities and attentive staff. From the moment you arrive, experience warm Sri Lankan hospitality that feels like coming home—only more indulgent.</p>
-    </section>
+  <section id="home" class="hero-section">
+    <div class="hero-content">
+      <h1>Luxury Redefined</h1>
+      <p>Experience Colombo like never before</p>
+      <a href="#booking" class="cta-button">Book a Room</a>
+    </div>
+  </section>
 
+  <main>
     <section id="booking" class="content-section">
       <h2>Book a Room</h2>
-      <form>
-        <label for="roomType">Room Type</label>
-        <select id="roomType" required>
-          <option value="single">Single</option>
-          <option value="double">Double</option>
-          <option value="suite">Suite</option>
-        </select>
-
-        <label for="checkIn">Check-in Date</label>
-        <input type="date" id="checkIn" required>
-
-        <label for="checkOut">Check-out Date</label>
-        <input type="date" id="checkOut" required>
-
-        <label for="specialNotes">Special Notes</label>
-        <textarea id="specialNotes" rows="4"></textarea>
-
+      <form id="bookingForm">
+        <div class="form-step">
+          <label for="roomType">Room Type</label>
+          <select id="roomType" required>
+            <option value="">Select</option>
+            <option value="single">Single</option>
+            <option value="double">Double</option>
+            <option value="suite">Suite</option>
+          </select>
+        </div>
+        <div class="form-step">
+          <label for="checkIn">Check-in</label>
+          <input type="date" id="checkIn" required />
+          <label for="checkOut">Check-out</label>
+          <input type="date" id="checkOut" required />
+        </div>
+        <div class="form-step">
+          <label for="specialNotes">Special Notes</label>
+          <textarea id="specialNotes" rows="4"></textarea>
+        </div>
         <button type="submit">Check Availability</button>
-      </form>
-    </section>
-
-    <section id="admin" class="content-section">
-      <h2>Admin Login</h2>
-      <form>
-        <label for="adminUser">Username</label>
-        <input type="text" id="adminUser" required>
-
-        <label for="adminPass">Password</label>
-        <input type="password" id="adminPass" required>
-
-        <button type="submit">Login</button>
-      </form>
-    </section>
-
-    <section id="staff" class="content-section">
-      <h2>Staff Login</h2>
-      <form>
-        <label for="staffUser">Username</label>
-        <input type="text" id="staffUser" required>
-
-        <label for="staffPass">Password</label>
-        <input type="password" id="staffPass" required>
-
-        <button type="submit">Login</button>
       </form>
     </section>
 
@@ -82,15 +58,27 @@ Delight your palate with gourmet dining experiences, relax with rejuvenating spa
       <h2>Customer Feedback</h2>
       <form>
         <label for="customerName">Name</label>
-        <input type="text" id="customerName" required>
-
+        <input type="text" id="customerName" required />
         <label for="customerFeedback">Feedback</label>
-        <textarea id="customerFeedback" rows="5" required></textarea>
-
-        <button type="submit">Submit Feedback</button>
+        <textarea id="customerFeedback" rows="4" required></textarea>
+        <button type="submit">Submit</button>
       </form>
     </section>
   </main>
+
+  <div id="loginModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h3>Login</h3>
+      <form>
+        <label for="username">Username</label>
+        <input type="text" id="username" required />
+        <label for="password">Password</label>
+        <input type="password" id="password" required />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
 
   <footer>
     <p>&copy; 2025 XYZ Grand Hotel. All rights reserved.</p>
